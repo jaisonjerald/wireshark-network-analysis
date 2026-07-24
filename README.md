@@ -15,6 +15,18 @@ This repository documents hands-on packet analysis performed using **Wireshark**
 The objective of this project is to understand how common network protocols operate and how security analysts inspect network traffic during troubleshooting, incident response, malware investigations, and threat hunting.
 
 ---
+## 📑 Table of Contents
+
+- [Lab Environment](#-lab-environment)
+- [Project Structure](#-project-structure)
+- [ARP Protocol Analysis](#1️⃣-address-resolution-protocol-arp)
+- [ICMP Protocol Analysis](#2️⃣-internet-control-message-protocol-icmp)
+- [DNS Protocol Analysis](#3️⃣-domain-name-system-dns)
+- [TCP Three-Way Handshake](#4️⃣-tcp-three-way-handshake)
+- [Skills Demonstrated](#-skills-demonstrated)
+- [Key Learnings](#-key-learnings)
+- [Future Work](#-future-work)
+- [License](#-license)
 
 ## 🎯 Objectives
 
