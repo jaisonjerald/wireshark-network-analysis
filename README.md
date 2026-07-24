@@ -1,106 +1,227 @@
-# Wireshark Network Analysis
+# 🦈 Wireshark Network Analysis
 
-This repository demonstrates practical packet analysis using **Wireshark** in a virtual lab environment. The project covers fundamental networking protocols and explains their role in cybersecurity investigations.
-
----
-
-## Lab Environment
-
-- **Operating System:** Kali Linux
-- **Virtualization:** Oracle VirtualBox
-- **Tool:** Wireshark
-- **Network Modes:** NAT & Host-Only Adapter
+![GitHub last commit](https://img.shields.io/github/last-commit/jaisonjerald/wireshark-network-analysis)
+![GitHub repo size](https://img.shields.io/github/repo-size/jaisonjerald/wireshark-network-analysis)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Platform](https://img.shields.io/badge/Platform-Kali_Linux-blue)
+![Tool](https://img.shields.io/badge/Tool-Wireshark-orange)
 
 ---
 
-# 1. ARP Protocol Analysis
+## 📖 Overview
 
-![ARP Analysis](images/01-arp-analysis.png)
+This repository documents hands-on packet analysis performed using **Wireshark** in a virtual lab environment.
 
-*Figure 1: ARP Request and ARP Reply captured using Wireshark.*
-
-> *(Your ARP analysis goes here.)*
+The objective of this project is to understand how common network protocols operate and how security analysts inspect network traffic during troubleshooting, incident response, malware investigations, and threat hunting.
 
 ---
 
-# 2. ICMP Protocol Analysis
+## 🎯 Objectives
 
-![ICMP Analysis](images/02-icmp-analysis.png)
-
-*Figure 2: ICMP Echo Request and Echo Reply captured using Wireshark.*
-
-> *(Your ICMP analysis goes here.)*
+- Understand packet structures
+- Capture real network traffic
+- Analyze common network protocols
+- Develop packet inspection skills
+- Build a practical cybersecurity portfolio
 
 ---
 
-# 3. DNS Protocol Analysis
+# 🖥️ Lab Environment
 
-## Objective
+| Component | Details |
+|-----------|---------|
+| Operating System | Kali Linux |
+| Virtualization | Oracle VirtualBox |
+| Network | NAT + Host-Only |
+| Tool | Wireshark |
 
-Capture and analyze DNS request and response packets using Wireshark to understand how domain names are resolved into IPv4 addresses.
+---
 
-### Display Filter
+# 📂 Project Structure
+
+```text
+wireshark-network-analysis/
+│
+├── README.md
+├── LICENSE
+│
+├── captures/
+│   ├── arp.pcapng
+│   ├── icmp.pcapng
+│   └── dns.pcapng
+│
+└── images/
+    ├── 01-arp-analysis.png
+    ├── 02-icmp-analysis.png
+    └── 03-dns-analysis.png
+```
+
+---
+
+# 📡 Protocol Analysis
+
+---
+
+# 1️⃣ Address Resolution Protocol (ARP)
+
+## Display Filter
+
+```text
+arp
+```
+
+## Capture
+
+<p align="center">
+<img src="images/01-arp-analysis.png" width="900">
+</p>
+
+### What Happened?
+
+The client broadcasts an ARP Request asking:
+
+> "Who has this IP address?"
+
+The destination device replies with its MAC address.
+
+### Security Relevance
+
+- Detect ARP Spoofing
+- Identify Duplicate IPs
+- Investigate Layer-2 attacks
+
+---
+
+# 2️⃣ Internet Control Message Protocol (ICMP)
+
+## Display Filter
+
+```text
+icmp
+```
+
+## Capture
+
+<p align="center">
+<img src="images/02-icmp-analysis.png" width="900">
+</p>
+
+### What Happened?
+
+An ICMP Echo Request (Ping) is sent to verify host availability.
+
+The destination responds with an ICMP Echo Reply.
+
+### Security Relevance
+
+- Connectivity Testing
+- Network Troubleshooting
+- Detect Ping Sweeps
+- Detect Reconnaissance
+
+---
+
+# 3️⃣ Domain Name System (DNS)
+
+## Display Filter
 
 ```text
 dns
 ```
 
-### Command Used
+## Command
 
 ```bash
 dig google.com
 ```
 
-### DNS Capture
+## Capture
 
-![DNS Analysis](images/03-dns-analysis.png)
+<p align="center">
+<img src="images/03-dns-analysis.png" width="900">
+</p>
 
-*Figure 3: DNS query and response captured using Wireshark.*
-
-### Packet Analysis
-
-#### DNS Query
+### Packet Summary
 
 | Field | Value |
 |-------|-------|
 | Source IP | 10.0.2.15 |
 | Destination IP | 172.23.203.65 |
 | Protocol | DNS |
-| Transport | UDP |
-| Destination Port | 53 |
-| Query Type | A Record |
-| Domain | google.com |
+| Port | UDP 53 |
+| Query | google.com |
+| Response | 142.251.223.238 |
 
-#### DNS Response
+### What Happened?
 
-| Field | Value |
-|-------|-------|
-| Source IP | 172.23.203.65 |
-| Destination IP | 10.0.2.15 |
-| Response | google.com → 142.251.223.238 |
+The client sends a DNS query requesting the IPv4 address of **google.com**.
+
+The DNS server responds with the corresponding IP address.
 
 ### Security Relevance
 
-- Detect malicious domains
-- Detect DNS tunneling
-- Detect Command-and-Control (C2) communication
-- Investigate malware beaconing
-- Support threat hunting
+DNS traffic is frequently analyzed to detect:
+
+- DNS Tunneling
+- Malware Communication
+- Command-and-Control (C2)
+- Suspicious Domains
+- Threat Hunting Indicators
 
 ---
 
-## Skills Demonstrated
+# 🛠 Skills Demonstrated
 
-- Wireshark Packet Analysis
-- ARP Analysis
-- ICMP Analysis
+- Wireshark
+- Packet Analysis
 - DNS Analysis
+- ICMP Analysis
+- ARP Analysis
 - Network Troubleshooting
-- Packet Inspection
+- Protocol Inspection
+- Traffic Analysis
 - Security Monitoring
 
 ---
 
-## Conclusion
+# 📚 Key Learnings
 
-This project demonstrates hands-on experience capturing and analyzing common network protocols using Wireshark. Understanding ARP, ICMP, and DNS traffic is fundamental for network troubleshooting, threat hunting, malware analysis, and Security Operations Center (SOC) investigations.
+✅ Layer 2 Communication
+
+✅ Layer 3 Communication
+
+✅ Name Resolution
+
+✅ Packet Inspection
+
+✅ Network Troubleshooting
+
+✅ Security Monitoring
+
+---
+
+# 🚀 Future Work
+
+- TCP Three-Way Handshake
+- HTTP Analysis
+- HTTPS / TLS Handshake
+- DHCP Analysis
+- FTP Analysis
+- SMB Analysis
+- SSH Analysis
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Jaison Jerald**
+
+- GitHub: https://github.com/jaisonjerald
+- CEH (Certified Ethical Hacker)
+- IT Support & Cybersecurity Enthusiast
