@@ -1,15 +1,43 @@
-# DNS Protocol Analysis
+# Wireshark Network Analysis
+
+This repository demonstrates practical packet analysis using **Wireshark** in a virtual lab environment. The project covers fundamental networking protocols and explains their role in cybersecurity investigations.
+
+---
+
+## Lab Environment
+
+- **Operating System:** Kali Linux
+- **Virtualization:** Oracle VirtualBox
+- **Tool:** Wireshark
+- **Network Modes:** NAT & Host-Only Adapter
+
+---
+
+# 1. ARP Protocol Analysis
+
+![ARP Analysis](images/01-arp-analysis.png)
+
+*Figure 1: ARP Request and ARP Reply captured using Wireshark.*
+
+> *(Paste your ARP analysis here.)*
+
+---
+
+# 2. ICMP Protocol Analysis
+
+![ICMP Analysis](images/02-icmp-analysis.png)
+
+*Figure 2: ICMP Echo Request and Echo Reply captured using Wireshark.*
+
+> *(Paste your ICMP analysis here.)*
+
+---
+
+# 3. DNS Protocol Analysis
 
 ## Objective
 
 Capture and analyze DNS request and response packets using Wireshark to understand how domain names are resolved into IPv4 addresses.
-
-### Lab Environment
-
-- Kali Linux
-- Oracle VirtualBox
-- Wireshark
-- NAT Network
 
 ### Display Filter
 
@@ -25,13 +53,11 @@ dig google.com
 
 ### DNS Capture
 
-![DNS Query and Response](images/03-dns-analysis.png)
+![DNS Analysis](images/03-dns-analysis.png)
 
 *Figure 3: DNS query and response captured using Wireshark.*
 
 ### Packet Analysis
-
-#### DNS Query
 
 | Field | Value |
 |-------|-------|
@@ -43,7 +69,7 @@ dig google.com
 | Query Type | A Record |
 | Domain | google.com |
 
-#### DNS Response
+### DNS Response
 
 | Field | Value |
 |-------|-------|
@@ -53,17 +79,26 @@ dig google.com
 
 ### Security Relevance
 
-- DNS resolves domain names to IP addresses.
-- DNS traffic can reveal malicious domains.
-- SOC analysts monitor DNS for:
-  - DNS tunneling
-  - Command-and-Control (C2) communication
-  - Malware beaconing
-  - Suspicious domain lookups
+- Detect malicious domains
+- DNS tunneling detection
+- Command-and-Control (C2) communication
+- Malware beaconing
+- Threat hunting
 
-### Key Takeaways
+---
 
-- DNS commonly uses **UDP port 53**.
-- **A records** resolve hostnames to IPv4 addresses.
-- Most web connections begin with a DNS lookup.
-- Wireshark enables detailed analysis of DNS requests and responses.
+## Skills Demonstrated
+
+- Wireshark Packet Analysis
+- Network Troubleshooting
+- DNS Analysis
+- ICMP Analysis
+- ARP Analysis
+- Network Traffic Inspection
+- Security Monitoring
+
+---
+
+## Conclusion
+
+This project demonstrates hands-on experience capturing and analyzing common network protocols using Wireshark. Understanding ARP, ICMP, and DNS traffic is fundamental for network troubleshooting, threat hunting, malware analysis, and Security Operations Center (SOC) investigations.
