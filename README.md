@@ -1,28 +1,69 @@
-# Wireshark Network Analysis
+# DNS Protocol Analysis
 
-Introduction
+## Objective
 
-## Lab Setup
+Capture and analyze DNS request and response packets using Wireshark to understand how domain names are resolved into IPv4 addresses.
 
-## Protocol Analysis
+### Lab Environment
 
-### 1. ARP Analysis
-(screenshot + explanation)
+- Kali Linux
+- Oracle VirtualBox
+- Wireshark
+- NAT Network
 
-### 2. ICMP Analysis
-(screenshot + explanation)
+### Display Filter
 
-### 3. DNS Analysis
-(screenshot + explanation)
+```text
+dns
+```
 
-### 4. TCP Three-Way Handshake
-(screenshot + explanation)
+### Command Used
 
-### 5. TLS Handshake
-(screenshot + explanation)
+```bash
+dig google.com
+```
 
-## Skills Demonstrated
+### DNS Capture
 
-## Key Learnings
+![DNS Query and Response](images/03-dns-analysis.png)
 
-## Conclusion
+*Figure 3: DNS query and response captured using Wireshark.*
+
+### Packet Analysis
+
+#### DNS Query
+
+| Field | Value |
+|-------|-------|
+| Source IP | 10.0.2.15 |
+| Destination IP | 172.23.203.65 |
+| Protocol | DNS |
+| Transport | UDP |
+| Destination Port | 53 |
+| Query Type | A Record |
+| Domain | google.com |
+
+#### DNS Response
+
+| Field | Value |
+|-------|-------|
+| Source IP | 172.23.203.65 |
+| Destination IP | 10.0.2.15 |
+| Response | google.com → 142.251.223.238 |
+
+### Security Relevance
+
+- DNS resolves domain names to IP addresses.
+- DNS traffic can reveal malicious domains.
+- SOC analysts monitor DNS for:
+  - DNS tunneling
+  - Command-and-Control (C2) communication
+  - Malware beaconing
+  - Suspicious domain lookups
+
+### Key Takeaways
+
+- DNS commonly uses **UDP port 53**.
+- **A records** resolve hostnames to IPv4 addresses.
+- Most web connections begin with a DNS lookup.
+- Wireshark enables detailed analysis of DNS requests and responses.
