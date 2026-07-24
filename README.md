@@ -19,7 +19,7 @@ This repository demonstrates practical packet analysis using **Wireshark** in a 
 
 *Figure 1: ARP Request and ARP Reply captured using Wireshark.*
 
-> *(Paste your ARP analysis here.)*
+> *(Your ARP analysis goes here.)*
 
 ---
 
@@ -29,7 +29,7 @@ This repository demonstrates practical packet analysis using **Wireshark** in a 
 
 *Figure 2: ICMP Echo Request and Echo Reply captured using Wireshark.*
 
-> *(Paste your ICMP analysis here.)*
+> *(Your ICMP analysis goes here.)*
 
 ---
 
@@ -59,6 +59,8 @@ dig google.com
 
 ### Packet Analysis
 
+#### DNS Query
+
 | Field | Value |
 |-------|-------|
 | Source IP | 10.0.2.15 |
@@ -69,7 +71,7 @@ dig google.com
 | Query Type | A Record |
 | Domain | google.com |
 
-### DNS Response
+#### DNS Response
 
 | Field | Value |
 |-------|-------|
@@ -80,21 +82,21 @@ dig google.com
 ### Security Relevance
 
 - Detect malicious domains
-- DNS tunneling detection
-- Command-and-Control (C2) communication
-- Malware beaconing
-- Threat hunting
+- Detect DNS tunneling
+- Detect Command-and-Control (C2) communication
+- Investigate malware beaconing
+- Support threat hunting
 
 ---
 
 ## Skills Demonstrated
 
 - Wireshark Packet Analysis
-- Network Troubleshooting
-- DNS Analysis
-- ICMP Analysis
 - ARP Analysis
-- Network Traffic Inspection
+- ICMP Analysis
+- DNS Analysis
+- Network Troubleshooting
+- Packet Inspection
 - Security Monitoring
 
 ---
