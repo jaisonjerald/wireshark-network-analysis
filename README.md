@@ -45,3 +45,45 @@ The Windows 11 VM responded with its MAC address, allowing Kali Linux to update 
 - ARP Requests are broadcast.
 - ARP Replies are unicast.
 - ARP is required before IPv4 communication on a local network.
+
+- # ICMP Analysis
+
+## Objective
+
+Analyze ICMP (Internet Control Message Protocol) traffic between Kali Linux and a Windows 11 virtual machine using Wireshark.
+
+---
+
+## Display Filter
+
+```text
+icmp
+```
+
+---
+
+## Command
+
+```bash
+ping -c 4 192.168.56.101
+```
+
+---
+
+## Screenshot
+
+![ICMP Analysis](images/02-icmp.png)
+
+---
+
+## Findings
+
+Four ICMP Echo Request packets were transmitted from Kali Linux (192.168.56.102) to the Windows 11 virtual machine (192.168.56.101).
+
+No ICMP Echo Reply packets were received because Windows Defender Firewall blocked inbound ICMP Echo Requests.
+
+---
+
+## Security Analysis
+
+This demonstrates how host-based firewalls reduce host visibility during reconnaissance by filtering ICMP traffic while allowing the operating system to remain protected.
