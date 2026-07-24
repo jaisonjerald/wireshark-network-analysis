@@ -169,7 +169,84 @@ DNS traffic is frequently analyzed to detect:
 - Threat Hunting Indicators
 
 ---
+---
 
+# 4️⃣ TCP Three-Way Handshake
+
+## Objective
+
+Capture and analyze the TCP Three-Way Handshake used to establish a reliable connection before HTTP communication.
+
+---
+
+## Display Filter
+
+```text
+tcp.port==80
+```
+
+---
+
+## Command Used
+
+```bash
+curl http://example.com
+```
+
+---
+
+## TCP Capture
+
+![TCP Three-Way Handshake](images/04-tcp-handshake.png)
+
+*Figure 4: TCP Three-Way Handshake and HTTP communication captured using Wireshark.*
+
+---
+
+## Packet Flow
+
+| Step | Packet | Description |
+|------|--------|-------------|
+| 1 | SYN | Client initiates a TCP connection to the web server. |
+| 2 | SYN-ACK | Server acknowledges the connection request. |
+| 3 | ACK | Client confirms the connection. |
+| 4 | HTTP GET | Client requests the web page. |
+| 5 | HTTP/1.1 200 OK | Server returns the requested content. |
+
+---
+
+## Packet Summary
+
+| Field | Value |
+|-------|-------|
+| Client IP | 10.0.2.15 |
+| Server IP | 172.66.147.243 |
+| Destination Port | 80 |
+| Protocol | TCP |
+| Application Protocol | HTTP |
+
+---
+
+## Security Relevance
+
+The TCP Three-Way Handshake establishes a reliable connection before data transmission.
+
+Security analysts examine TCP handshakes to detect:
+
+- SYN Flood attacks
+- Port scanning
+- Connection failures
+- Service availability issues
+- Network reconnaissance
+
+---
+
+## Key Takeaways
+
+- TCP is a **connection-oriented** protocol.
+- Three packets are exchanged before data transfer begins.
+- HTTP communication starts only after the TCP connection has been established.
+- Wireshark provides visibility into every stage of the TCP connection.
 # 🛠 Skills Demonstrated
 
 - Wireshark
