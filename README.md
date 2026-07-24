@@ -1,89 +1,52 @@
-# wireshark-network-analysis
-Packet capture and network traffic analysis using Wireshark in a Windows 11 and Kali Linux lab environment.
-# ARP Analysis
+# DNS Protocol Analysis
 
 ## Objective
+Capture and analyze DNS request and response packets using Wireshark.
 
-Analyze the Address Resolution Protocol (ARP) exchange between Kali Linux and a Windows 11 virtual machine.
+## Lab Environment
 
----
+- Kali Linux
+- VirtualBox
+- NAT Network
+- Wireshark
 
 ## Display Filter
 
 ```text
-arp
+dns
 ```
 
----
+## Command Used
+
+```bash
+dig google.com
+```
 
 ## Observations
 
-### ARP Request
+### DNS Query
+- Source IP: 10.0.2.15
+- Destination IP: 172.23.203.65
+- Query Type: A Record
+- Domain: google.com
 
-```
-Who has 192.168.56.101?
-Tell 192.168.56.102
-```
-
-The Kali Linux VM broadcast an ARP Request to discover the MAC address associated with the target Windows 11 IP address.
-
----
-
-### ARP Reply
-
-```
-192.168.56.101 is at 08:00:27:77:19:cf
-```
-
-The Windows 11 VM responded with its MAC address, allowing Kali Linux to update its ARP cache and communicate directly at Layer 2.
-
----
-
-## Key Learning
-
-- ARP resolves IPv4 addresses to MAC addresses.
-- ARP Requests are broadcast.
-- ARP Replies are unicast.
-- ARP is required before IPv4 communication on a local network.
-
-- # ICMP Analysis
-
-## Objective
-
-Analyze ICMP (Internet Control Message Protocol) traffic between Kali Linux and a Windows 11 virtual machine using Wireshark.
-
----
-
-## Display Filter
-
-```text
-icmp
-```
-
----
-
-## Command
-
-```bash
-ping -c 4 192.168.56.101
-```
-
----
-
-## Screenshot
-
-![ICMP Analysis](images/02-icmp.png)
-
----
-
-## Findings
-
-Four ICMP Echo Request packets were transmitted from Kali Linux (192.168.56.102) to the Windows 11 virtual machine (192.168.56.101).
-
-No ICMP Echo Reply packets were received because Windows Defender Firewall blocked inbound ICMP Echo Requests.
-
----
+### DNS Response
+- Source IP: 172.23.203.65
+- Destination IP: 10.0.2.15
+- Returned IPv4 Address: 142.251.223.238
 
 ## Security Analysis
 
-This demonstrates how host-based firewalls reduce host visibility during reconnaissance by filtering ICMP traffic while allowing the operating system to remain protected.
+DNS is responsible for translating domain names into IP addresses.
+
+SOC analysts inspect DNS traffic to:
+- Detect malicious domains
+- Identify DNS tunneling
+- Investigate malware communications
+- Detect command-and-control (C2) traffic
+
+## Key Learning
+
+- DNS uses UDP port 53 by default.
+- A records resolve hostnames to IPv4 addresses.
+- Every web request usually begins with a DNS lookup.
