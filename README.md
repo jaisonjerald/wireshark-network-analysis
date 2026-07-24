@@ -249,16 +249,15 @@ Security analysts examine TCP handshakes to detect:
 - Wireshark provides visibility into every stage of the TCP connection.
 # 🛠 Skills Demonstrated
 
-- Wireshark
-- Packet Analysis
-- DNS Analysis
-- ICMP Analysis
+- Wireshark Packet Analysis
 - ARP Analysis
+- ICMP Analysis
+- DNS Analysis
+- TCP Three-Way Handshake Analysis
+- HTTP Traffic Analysis
 - Network Troubleshooting
-- Protocol Inspection
-- Traffic Analysis
+- Packet Inspection
 - Security Monitoring
-
 ---
 
 # 📚 Key Learnings
