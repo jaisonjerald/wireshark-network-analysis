@@ -320,6 +320,10 @@ https://google.com
 
 ## 📂 Packet Capture
 
+The original packet capture used in this analysis is available here:
+
+- [`captures/05-tls-handshake.pcapng`](captures/05-tls-handshake.pcapng)
+
 ```
 captures/05-tls-handshake.pcapng
 ```
