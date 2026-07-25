@@ -259,6 +259,131 @@ Security analysts examine TCP handshakes to detect:
 - Three packets are exchanged before data transfer begins.
 - HTTP communication starts only after the TCP connection has been established.
 - Wireshark provides visibility into every stage of the TCP connection.
+
+- ---
+
+# 5️⃣ TLS (HTTPS) Handshake Analysis
+
+## 🎯 Objective
+
+Capture and analyze the TLS 1.3 handshake used to establish an encrypted HTTPS connection between a client and a web server.
+
+---
+
+## 🖥️ Lab Environment
+
+| Component | Details |
+|-----------|---------|
+| Operating System | Kali Linux |
+| Virtualization | Oracle VirtualBox |
+| Tool | Wireshark |
+| Network Mode | NAT |
+
+---
+
+## 🔍 Display Filter
+
+```text
+tls
+```
+
+> If your Wireshark version does not recognize `tls`, use:
+
+```text
+tcp.port == 443
+```
+
+---
+
+## 🌐 Activity Performed
+
+Accessed the following HTTPS websites using Firefox:
+
+```text
+https://example.com
+https://google.com
+```
+
+---
+
+## 📸 TLS Capture
+
+<p align="center">
+<img src="images/05-tls-handshake.png" width="900">
+</p>
+
+<p align="center">
+<b>Figure 5:</b> TLS 1.3 handshake captured using Wireshark.
+</p>
+
+---
+
+## 📂 Packet Capture
+
+```
+captures/05-tls-handshake.pcapng
+```
+
+---
+
+## 📊 Packet Analysis
+
+| Field | Value |
+|-------|-------|
+| Client IP | 10.0.2.15 |
+| Protocol | TLS 1.3 |
+| Destination Port | 443 |
+| Transport Protocol | TCP |
+| Application Protocol | HTTPS |
+
+---
+
+## 🔄 TLS Handshake Process
+
+| Step | Description |
+|------|-------------|
+| Client Hello | Client initiates a secure connection and advertises supported TLS versions and cipher suites. |
+| Server Hello | Server selects the TLS version and cipher suite. |
+| Certificate | Server presents its digital certificate for authentication. |
+| Key Exchange | Client and server establish a shared encryption key. |
+| Encrypted Application Data | Secure communication begins after the handshake completes. |
+
+---
+
+## 🛡️ Security Relevance
+
+TLS provides three primary security services:
+
+- 🔒 Encryption
+- ✅ Authentication
+- ✔️ Data Integrity
+
+SOC analysts inspect TLS traffic to:
+
+- Verify server certificates
+- Detect outdated TLS versions
+- Identify weak cipher suites
+- Investigate suspicious encrypted communications
+- Detect potential malware Command-and-Control (C2) traffic
+
+---
+
+## 📚 Key Takeaways
+
+- HTTPS uses TLS to encrypt web traffic.
+- TLS 1.3 provides improved security and faster handshakes.
+- Application data remains encrypted after the handshake.
+- Wireshark can analyze the handshake but cannot decrypt encrypted payloads without the appropriate session keys.
+
+---
+
+## 💡 Skills Demonstrated
+
+- TLS 1.3 Packet Analysis
+- HTTPS Traffic Analysis
+- Wireshark Protocol Inspection
+- Secure Communication Analysis
+- Network Traffic Monitoring
 # 🛠 Skills Demonstrated
 
 - Wireshark Packet Analysis
