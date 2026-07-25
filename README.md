@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/banner.png" alt="Banner" width="100%">
+</p>
+
 # 🦈 Wireshark Network Analysis
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/jaisonjerald/wireshark-network-analysis)
