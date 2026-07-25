@@ -416,6 +416,16 @@ SOC analysts inspect TLS traffic to:
 ✅ Security Monitoring
 
 ---
+# 📖 What I Learned
+
+Through this project, I gained practical experience in:
+
+- Capturing live network traffic using Wireshark
+- Understanding ARP, ICMP, DNS, TCP, and TLS communication
+- Performing packet-level network troubleshooting
+- Analyzing encrypted and unencrypted traffic
+- Documenting technical findings using GitHub
+- Understanding how common network protocols support cybersecurity investigations
 
 # 🚀 Future Work
 
